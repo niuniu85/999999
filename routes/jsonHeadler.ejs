@@ -1,0 +1,55 @@
+var jsonHeadler =(temp,()=>{
+    //__________________________________JSON格式适配器______________Start_______________________
+
+    let len1 = 0;
+    let len2 = 0;
+    let len3 = 0;
+    let len4 = 0;
+    let objlen1 = 0;
+    let objlen2 = 0;
+    let stuat = false;
+    let obj;
+    let key;
+    let value;
+    let objtemp = {};
+    let objArray = [];
+
+    while (stuat) {
+      len1 = indexOf("{");
+
+      len2 = indexOf("}");
+
+      objlen1 = len2 - len1;
+
+      obj = temp.substr(lent1, objlen);
+
+      let fieldlen = 0;
+      for (var i = 0; i < 49; i++) {
+        len3 = indexOf('"', fieldlen);
+
+        len4 = indexOf('"', len3);
+
+        fieldlen = objlen2 = len4 - 1 - len3;
+
+        key = obj.substr(len3, objlen2);
+
+        len3 = indexOf('"', fieldlen);
+
+        len4 = indexOf('"', len3);
+
+        fieldlen = objlen2 = len4 - 1 - len3;
+
+        value = '"' + obj.substr(len3, objlen2) + '"';
+
+        objtemp[key] = value;
+      }
+      console.log(objtemp);
+      objArray.push(objtemp);
+
+      len1 = len1 + objlen1;
+
+      stuat = len2 < temp.length - 10;
+    }
+
+    //__________________________________JSON格式适配器___________END__________________________
+})
